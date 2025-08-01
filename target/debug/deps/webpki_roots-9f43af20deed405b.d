@@ -1,0 +1,7 @@
+/home/maike/Documents/projects/rust/osu-rivals/target/debug/deps/webpki_roots-9f43af20deed405b.d: /home/maike/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/webpki-roots-0.25.4/src/lib.rs
+
+/home/maike/Documents/projects/rust/osu-rivals/target/debug/deps/libwebpki_roots-9f43af20deed405b.rlib: /home/maike/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/webpki-roots-0.25.4/src/lib.rs
+
+/home/maike/Documents/projects/rust/osu-rivals/target/debug/deps/libwebpki_roots-9f43af20deed405b.rmeta: /home/maike/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/webpki-roots-0.25.4/src/lib.rs
+
+/home/maike/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/webpki-roots-0.25.4/src/lib.rs:
