@@ -17,7 +17,7 @@ pub async fn v2() -> Result<(), Box<dyn std::error::Error>> {
 
     let user_ext = osu.user(&input_username).mode(GameMode::Osu).await?;
     let user_scores = osu.user_scores(&input_username).mode(GameMode::Osu);
-    let user_mania = osu.user(&input_username).mode(GameMode::Mania).await?;
+    let _user_mania = osu.user(&input_username).mode(GameMode::Mania).await?;
     // println!("{:#?}", user_ext); // Get all values from osu.user, to see possible options
     // println!("{:#?}", user_mania); // Get all values from osu.user, to see possible options
 
@@ -73,7 +73,7 @@ pub async fn v2() -> Result<(), Box<dyn std::error::Error>> {
             return Ok(());
         }
     };
-    let max_combo = statistics.max_combo; // let level = match user_ext.statistics.unwrap() {
+    let _max_combo = statistics.max_combo; // let level = match user_ext.statistics.unwrap() {
 
     println!("Username: {:?}", user_ext.username);
     println!("Avatar URL: {:?}", user_ext.avatar_url);
@@ -90,7 +90,7 @@ pub async fn v2() -> Result<(), Box<dyn std::error::Error>> {
     println!("Max Combo: {:#?}", statistics.max_combo);
     let rank_history_f64: Vec<f64> = rank_history.iter().map(|&x| x as f64).collect();
     println!("Rank History: {:#?}", spark(&rank_history_f64)); // still has to be inverted to not raise but fall
-    // println!("Max Combo: {:?}", max_combo);
+    // println!("Max Combo: {:?}", _max_combo);
 
     println!("\nYou should now see your top scores:");
     let beatmap_name = user_scores.best().offset(0).await?;
@@ -116,19 +116,19 @@ pub async fn v2() -> Result<(), Box<dyn std::error::Error>> {
     Ok(())
 }
 
-use std::path::Path;
-use viuer::{Config, print_from_file};
+// use std::path::Path;
+// use viuer::{Config, print_from_file};
 
-fn image() {
-    let conf = Config {
-        width: Some(25),
-        height: Some(25),
-        ..Default::default()
-    };
-
-    print_from_file(
-        "/home/maike/Documents/projects/rust/osu-rivals/src/test.jpg",
-        &conf,
-    )
-    .expect("Image printing failed.");
-}
+// fn image() {
+//     let conf = Config {
+//         width: Some(25),
+//         height: Some(25),
+//         ..Default::default()
+//     };
+//
+//     print_from_file(
+//         "/home/maike/Documents/projects/rust/osu-rivals/src/test.jpg",
+//         &conf,
+//     )
+//     .expect("Image printing failed.");
+// }
