@@ -1,4 +1,4 @@
-use rosu_v2::{model::user, prelude::*};
+use rosu_v2::prelude::*;
 use sparklines::spark;
 use text_io::read;
 
@@ -39,21 +39,21 @@ pub async fn v2() -> Result<(), Box<dyn std::error::Error>> {
     let highest_rank = match user_ext.highest_rank {
         Some(x) => x,
         None => {
-            println!("Error!");
+            println!("Error reading highest rank!");
             return Ok(());
         }
     };
     let playstyle = match user_ext.playstyle {
         Some(x) => x,
         None => {
-            println!("Error!");
+            println!("Error reading playstyle!");
             return Ok(());
         }
     };
     let rank_history = match user_ext.rank_history {
         Some(x) => x,
         None => {
-            println!("Error!");
+            println!("Error reading rank_history!");
             return Ok(());
         }
     };
@@ -62,14 +62,14 @@ pub async fn v2() -> Result<(), Box<dyn std::error::Error>> {
     let global_rank = match statistics.global_rank {
         Some(x) => x,
         None => {
-            println!("Error!");
+            println!("Error reading global rank!");
             return Ok(());
         }
     };
     let country_rank = match statistics.country_rank {
         Some(x) => x,
         None => {
-            println!("Error!");
+            println!("Error reading country rank!");
             return Ok(());
         }
     };
