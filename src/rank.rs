@@ -98,5 +98,24 @@ pub async fn v2() -> Result<(), Box<dyn std::error::Error>> {
     //     .unwrap();
     // println!("{:#?}", scores);
 
+    // image();
+
     Ok(())
+}
+
+use std::path::Path;
+use viuer::{Config, print_from_file};
+
+fn image() {
+    let conf = Config {
+        width: Some(25),
+        height: Some(25),
+        ..Default::default()
+    };
+
+    print_from_file(
+        "/home/maike/Documents/projects/rust/osu-rivals/src/test.jpg",
+        &conf,
+    )
+    .expect("Image printing failed.");
 }
