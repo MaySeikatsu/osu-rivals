@@ -1,17 +1,19 @@
 use rosu_v2::{model::user, prelude::*};
 use sparklines::spark;
+use text_io::read;
 
-// [tokio::main]
 pub async fn v2() -> Result<(), Box<dyn std::error::Error>> {
-    // Initilize Client
+    // Initilize Client to API
     let client_id: u64 = 42909;
     let client_secret = String::from("rBP4sRzwcGL9bYiqLb5fX1UXDuwtrY7LwWO8oJSh");
     let osu = Osu::new(client_id, client_secret).await.unwrap();
 
-    let input_username = "mayseikatsu";
+    // let word: String = read!(); // same as read!("{}")
+    print!("Input Username: ");
+    let input_username: String = read!(); // borrow this value with & 
 
-    let user_ext = osu.user(input_username).mode(GameMode::Osu).await?;
-    let user_mania = osu.user(input_username).mode(GameMode::Mania).await?;
+    let user_ext = osu.user(&input_username).mode(GameMode::Osu).await?;
+    let user_mania = osu.user(&input_username).mode(GameMode::Mania).await?;
     // println!("{:#?}", user_ext); // Get all values from osu.user, to see possible options
     // println!("{:#?}", user_mania); // Get all values from osu.user, to see possible options
 
