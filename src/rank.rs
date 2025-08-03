@@ -76,6 +76,7 @@ pub async fn v2() -> Result<(), Box<dyn std::error::Error>> {
     println!("Is Online: {:?}", user_ext.is_online);
     println!("Playstyle: {:?}", playstyle[0]); // playstyle[value] to get specific output value
     println!("Country: {:?}", user_ext.country);
+    println!("Country Code: {:?}", user_ext.country_code);
     println!("Hightest Rank: {:?}", highest_rank.rank);
     println!("Your global rank is: {:#?}", global_rank);
     println!("Your country rank is: {:#?}", country_rank);
@@ -84,7 +85,7 @@ pub async fn v2() -> Result<(), Box<dyn std::error::Error>> {
     println!("PP: {:#?}", statistics.pp);
     println!("Max Combo: {:#?}", statistics.max_combo);
     let rank_history_f64: Vec<f64> = rank_history.iter().map(|&x| x as f64).collect();
-    // println!("Rank History: {:#?}", spark(&rank_history_f64)); // still has to be inverted to not raise but fall
+    println!("Rank History: {:#?}", spark(&rank_history_f64)); // still has to be inverted to not raise but fall
     // println!("Max Combo: {:?}", max_combo);
 
     // println!("You should now see your score:");
