@@ -9,10 +9,14 @@ pub async fn v2() -> Result<(), Box<dyn std::error::Error>> {
     let osu = Osu::new(client_id, client_secret).await.unwrap();
 
     // let word: String = read!(); // same as read!("{}")
-    print!("Input Username: ");
-    let input_username: String = read!(); // borrow this value with & 
+    // print!("Input Username: ");
+    // let input_username: String = read!(); // borrow this value with &
+    // Debug User
+    println!("Input Username: ");
+    let input_username: String = "mayseikatsu".to_string(); // borrow this value with & 
 
     let user_ext = osu.user(&input_username).mode(GameMode::Osu).await?;
+    let user_scores = osu.user_scores(&input_username).mode(GameMode::Osu);
     let user_mania = osu.user(&input_username).mode(GameMode::Mania).await?;
     // println!("{:#?}", user_ext); // Get all values from osu.user, to see possible options
     // println!("{:#?}", user_mania); // Get all values from osu.user, to see possible options
@@ -28,7 +32,7 @@ pub async fn v2() -> Result<(), Box<dyn std::error::Error>> {
     let statistics = match user_ext.statistics {
         Some(x) => x,
         None => {
-            println!("Error!");
+            println!("Error while reading statistics!");
             return Ok(());
         }
     };
@@ -88,16 +92,24 @@ pub async fn v2() -> Result<(), Box<dyn std::error::Error>> {
     println!("Rank History: {:#?}", spark(&rank_history_f64)); // still has to be inverted to not raise but fall
     // println!("Max Combo: {:?}", max_combo);
 
-    // println!("You should now see your score:");
+    println!("\nYou should now see your top scores:");
+    let beatmap_name = user_scores.best().offset(0).await?;
+    //     Some(x) => x,
+    //     None => {
+    //         println!("Error reading user_scores!");
+    //         return Ok(());
+    //     }
+    // };
+
     // let scores: Vec<Score> = osu
-    //     .user_scores("mayseikatsu")
+    //     .user_scores(input_username)
     //     .mode(GameMode::Osu)
     //     .best() // top scores; alternatively .recent(), .pinned(), or .firsts()
     //     .offset(00)
     //     .limit(1)
     //     .await
     //     .unwrap();
-    // println!("{:#?}", scores);
+    println!("{:#?}", beatmap_name);
 
     // image();
 
